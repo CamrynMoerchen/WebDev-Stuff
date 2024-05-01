@@ -1,0 +1,431 @@
+/* Name: Camryn Moerchen 
+   Student Number: 0723708 
+   COIS-3420H Assignment 4
+   Stylesheet:  main.css
+   Stylesheet Description: This stylesheet styles all of the pages for the website.
+*/
+
+/* import reset */
+@import url("reset.css"); 
+
+/* import google font roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* the html element*/
+:root {
+  /* set variables for commonly used colours */
+  --dark: #1B3022;
+  --light: #E4E7DA;
+  --other: #879c8e;
+
+  /* fallback for browsers that don't use variables */
+  color: #1B3022;
+  background-color: #E4E7DA;
+
+  /* override fallback with desired color variables */
+  background-color: var(--light);
+  color: var(--dark);
+  font-family: "Roboto", sans-serif; /*google font roboto*/
+}
+
+/*///////////////////////*/
+/* styling the headings */
+/*//////////////////////*/
+/* most styles involve increasing the font-weight and font-size */
+
+h1{
+  font-weight: 800;
+  font-size: 3.25rem;
+  min-width: fit-content;
+}
+
+h2{
+  font-weight: bold;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+h3{
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+/*/////////////////////////*/
+/* creating the flexboxes */
+/*///////////////////////*/
+
+header, nav, form, body, section, main{
+  display: flex;
+}
+
+form, body, section{
+  flex-direction: column; /* main flexboxes that will be in a vertical direction */
+}
+
+/*/////////////////////////*/
+/* styling the navigation */
+/*///////////////////////*/
+
+header{
+  align-items: center; /* centering the items in the header */
+  padding: 1rem;
+  background-color: var(--other);
+}
+
+nav a{
+  /* creating the 'buttons' for the navigation */
+  background-color: var(--dark);
+  background: linear-gradient(var(--dark), #0f1c13); /* creating a gradient background for the buttons */
+  color: var(--light);
+  font-size: 1.25rem;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;  /* rounding the corners on the buttons */
+  text-decoration: none; /* removing the underline from the link */
+}
+
+nav a:hover{
+  /* changing the color of the nav button when it's hovered over */
+  background-color: var(--light);
+  background: linear-gradient(var(--light), var(--light));
+  color: var(--dark);
+}
+
+/*////////////////////////////////////////*/
+/* styling the section, main, and footer */
+/*//////////////////////////////////////*/
+
+section{
+  align-items: center;
+  background-color: var(--other);
+  max-width: fit-content;
+  margin: 5rem;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1rem solid var(--dark);
+
+  /* animating the section to fade in to make site navigation look smoother */
+  animation-duration: 0.5s;
+  animation-name: fadeIn;
+  animation-timing-function: linear;
+  
+}
+
+/* animation for fade in */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+main{
+  justify-content: center;   /* centering all of the content of the page in the center */
+}
+
+footer{
+  align-self: center;   /* changing the footer to be in the center of the page */
+}
+
+/*/////////////////////*/
+/* styling the inputs */
+/*///////////////////*/
+
+input::placeholder{
+  font-style: italic; /* styling the placeholder in the input to be italic */
+}
+
+input:focus{
+  background-color: var(--light); /* changng the background color of the input when the user selects it */
+}
+
+/* styling the different inputs to be rounded*/
+input[type = text], input[type = password], input[type = url], input[type = email], input[type = date], input[type = file], input[type = search], input[type = number], select{
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem var(--dark); 
+  border: 0.1rem solid var(--dark);
+}
+
+input{
+  padding: 0.25rem; /* giving all of the types of input some padding */
+}
+
+/*////////////////////////////////////*/
+/* styling the buttons for the forms */
+/*//////////////////////////////////*/
+
+/* styling the submit buttons to look like buttons */
+button{
+  color: var(--dark);
+  background-color: var(--light);
+  border: 0.2rem solid var(--light);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 0.25rem var(--dark);
+  min-width: 10rem;
+}
+
+/* changing the color of the button when it's hovered over */
+button:hover{
+  color: var(--light);
+  background-color: var(--dark);
+  border: 0.2rem solid var(--dark);
+  box-shadow: 0 0.25rem var(--light);
+}
+
+/*///////////////////////////////////*/
+/* styling pages that display books */
+/*/////////////////////////////////*/
+
+div.displaybooks{
+  display: grid; /* styling the display of books using a grid */
+  grid-template-columns: 33% 33% 33%; /* seperating the grid into 3 'even' columns */
+  gap: 1rem; /* adding a gap to the grid */
+  border-top: 0.5rem solid var(--dark); /* adding a line above the top of the book displays */
+  padding-top: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+/* styling the book information within displaybooks */
+div.displaybooks div{
+  display: flex; /* using a flexbox to style the book information */
+  flex-direction: column;
+  background-color: var(--light);
+  border: 0.5rem solid var(--light);
+  border-radius: 0.5rem;
+  min-width: 17rem;
+}
+
+/* styling the book titles to be bigger and bold */
+div.displaybooks div span.btitle{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+div.displaybooks div span{
+  margin-left: 1rem;
+}
+
+/* styling the delete, edit, and details links */
+div.displaybooks div div.booklinks{
+  flex-direction: row;
+  display: flex;
+  margin-left: 0.5rem;
+  min-width: 10rem;
+}
+
+/* styling the delete, edit, and details links to look like 'buttons'*/
+div.displaybooks div div.booklinks a{
+  max-width: fit-content;
+  text-decoration: none; /* removing the underline from the links */
+  color: var(--light);
+  background-color: var(--dark);
+  padding: 0.5rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* styling the link buttons to change color when hovered over  */
+div.displaybooks div div.booklinks a:hover{
+  color: var(--dark);
+  background-color: var(--other);
+}
+
+/* styling the previous and next links */
+div.displaynav{
+  margin: 1rem;
+}
+
+/* styling the previous and next links to look like 'buttons' */
+div.displaynav a{
+  max-width: fit-content;
+  text-decoration: none; /* removing the underline from the links */
+  color: var(--light);
+  background-color: var(--dark);
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* styling the link buttons to change color when hovered over  */
+div.displaynav a:hover{
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+/* styling the images of the books to have a box shadow and margins */
+img{
+  margin: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem #969c84;
+  width: 15rem;
+  height: 20rem;
+  
+}
+
+
+/*////////////////////////////*/
+/* styling the add book page */
+/*//////////////////////////*/
+
+form div.addbookinfo div{
+  display: flex;  
+  flex-direction: column;
+}
+
+form#addbookform{
+  display: grid;  /* using a grid to display the form */
+  /* laying out the forms and columns of the grid */
+  grid-template-rows: 0fr 0fr 0fr 0.25fr;
+  grid-template-columns: 2fr 2fr;
+  gap: 1.5rem; /* adding a gap to the grid */
+  align-items: start;  /* aligning items to the top of the "grid cell" */
+
+}
+
+form#addbookform div{
+  background-color: var(--light);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+form#addbookform div.addbookinfo div div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* positioning the add book button */
+form#addbookform div#addbookbutton{
+  display: flex;
+  justify-content: center;
+  grid-column: span 2; /* having the add book button span both columns so that it can be centered*/
+  background-color: var(--other);
+}
+
+/*////////////////////////////////*/
+/* styling the book details page */
+/*//////////////////////////////*/
+
+div#bookdetails{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* styling the book cover in the book details */
+div#bookdetails img{
+  border: 1rem solid var(--light);
+  border-radius: 0.5rem;
+  box-shadow: none; /* removing the book shadow from the previous img selector */
+}
+
+/* styling the first ul and not the ul inside the ul */
+div#bookdetails > ul{
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--light);
+  border-radius: 0.5rem;
+}
+
+div#bookdetails ul ul{
+  list-style: circle; /* styling the ul inside the ul to have hollow circles */
+  margin-left: 1rem;
+}
+
+div#bookdetails ul li{
+  margin: 1rem;
+}
+
+/* bolding the title of the detail in the unordered list */
+div#bookdetails ul span.item{
+  font-weight: bold;
+}
+
+/*///////////////*/
+/* extra styles */
+/*/////////////*/
+form{
+  align-items: center;
+}
+
+fieldset legend, label{
+  font-weight: bold;
+}
+
+/* styling the forgot your password link */
+a.forgot{
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+a.forgot:hover{
+  color:aqua;
+}
+
+/* When errors are visible they should be red and have a margin around them */
+.error {
+  color: var(--borders);
+  display: block;
+  margin: 0.5em;
+}
+
+.error.hidden {
+  display: none;
+}
+
+header.hidden {
+  display: none;
+}
+
+/* Styling the chevron that collapses the menu */
+span.chevron{
+  background-color: #879c8e;
+  max-width: fit-content;
+  padding: 0.5rem;
+  margin-left: 70rem;
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+/* Styling the modal window for the book details */
+/* The background of the modal */
+div.modal {
+  display: none; /* Don't display until clicked on */
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 5rem; 
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(27, 48, 34,0.5); /* Dimming the background */
+}
+
+/* The modal window */
+div.modalContent {
+  background-color: var(--other);
+  width: fit-content;
+  margin: auto;
+  padding: 1rem;
+  border: 0.5rem solid var(--dark);
+  border-radius: 0.5rem;
+}
+
+/* The closing X button */
+#close {
+  color: var(--dark);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* When the closed button is hovered over */
+#close:hover {
+  color: var(--light);
+}
+
